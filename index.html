@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>NeuroCare Foundation - Coming Soon</title>
+    <style>
+        body {
+            font-family: 'Helvetica Neue', Arial, sans-serif;
+            background-color: #00172D;
+            color: #ffffff;
+            margin: 0;
+            padding: 0;
+            text-align: center;
+        }
+        .section {
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+            padding: 20px;
+        }
+        h1 {
+            font-size: 64px;
+            margin-bottom: 10px;
+            letter-spacing: 1px;
+        }
+        h2 {
+            font-size: 26px;
+            font-weight: normal;
+            font-style: italic;
+            margin-top: 0;
+            margin-bottom: 50px;
+        }
+        h3 {
+            font-size: 44px;
+            margin-bottom: 10px;
+        }
+        .pretext, .posttext {
+            font-size: 22px;
+            margin: 10px 0;
+        }
+        p {
+            font-size: 20px;
+            margin-top: 10px;
+            margin-bottom: 30px;
+        }
+        a {
+            color: #ffffff;
+            text-decoration: underline;
+            font-weight: bold;
+        }
+        a:hover {
+            opacity: 0.8;
+        }
+        #countdown {
+            font-size: 22px;
+            font-weight: bold;
+            margin-top: 30px;
+        }
+    </style>
+</head>
+
+<body>
+
+<!-- Coming Soon Section -->
+<div id="main" class="section">
+    <h1>NeuroCare Foundation</h1>
+    <h2>For the minds that hope</h2>
+
+    <div class="pretext">Still in the dark, but only because...</div>
+    <h3>COMING SOON!</h3>
+    <div class="posttext">...we're rewiring the lights.</div>
+
+    <p>For more information, email <a href="mailto:info@neurocarefoundation.org">info@neurocarefoundation.org</a></p>
+    <div id="countdown"></div>
+</div>
+
+<!-- Countdown Script -->
+<script>
+    const countdown = document.getElementById('countdown');
+    const launchDate = new Date('September 1, 2026 00:00:00').getTime();
+
+    function updateCountdown() {
+        const now = new Date().getTime();
+        let distance = launchDate - now;
+
+        if (distance <= 0) {
+            countdown.innerHTML = "We have launched!";
+            return;
+        }
+
+        const totalSeconds = Math.floor(distance / 1000);
+        const years = Math.floor(totalSeconds / (3600 * 24 * 365));
+        const months = Math.floor((totalSeconds % (3600 * 24 * 365)) / (3600 * 24 * 30));
+        const days = Math.floor((totalSeconds % (3600 * 24 * 30)) / (3600 * 24));
+        const hours = Math.floor((totalSeconds % (3600 * 24)) / 3600);
+        const minutes = Math.floor((totalSeconds % 3600) / 60);
+        const seconds = Math.floor(totalSeconds % 60);
+
+        countdown.innerHTML = `${years}y ${months}m ${days}d ${hours}h ${minutes}m ${seconds}s`;
+    }
+
+    setInterval(updateCountdown, 1000);
+    updateCountdown();
+</script>
+
+</body>
+</html>
